@@ -2,8 +2,6 @@ package com.orangehrm.tests;
 
 import static org.junit.Assert.assertTrue;
 import static org.testng.Assert.fail;
-import static org.testng.ITestResult.FAILURE;
-import static org.testng.ITestResult.SKIP;
 
 import com.orangehrm.tests.driver.DriverFactory;
 import com.orangehrm.tests.utils.BrowserConsoleListener;
@@ -24,18 +22,8 @@ public class OrangeHRMTest
         DriverFactory.instance().ensureConfig("chrome", siteAddress);
     }
 
-
     @AfterMethod(alwaysRun = true)
     public void orangeHRMTestTearDown(ITestResult result) {
-        try {
-            switch (result.getStatus()) {
-                case FAILURE:
-                case SKIP:
-            }
-        } catch (RuntimeException e) {
-            System.out.printf("Failed to take screenshot for %s\n", result.getName());
-        }
-
         try {
             DriverFactory.instance().destroyDriver();
         } catch (RuntimeException e) {
