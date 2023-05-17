@@ -1,0 +1,9 @@
+<suite name="Regression TestSuite">
+    <test name="OrangeHRM Test-GUI">
+        <classes>
+            <class name="com.orangehrm.tests.tests.LoginTests"></class>
+        </classes>
+    </test>
+
+
+</suite>
